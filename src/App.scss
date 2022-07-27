@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+
+  .CardList-container {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
