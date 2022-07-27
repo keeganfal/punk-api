@@ -14,6 +14,7 @@ function App() {
   console.log(cardListJSX);
   return (
     <div className="App">
+      <div className="title">PUNK API BREWERY</div>
       <Nav></Nav>
       <div className="CardList-container">
       {cardListJSX}
