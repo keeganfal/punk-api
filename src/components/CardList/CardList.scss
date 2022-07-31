@@ -12,8 +12,13 @@
     font-size: auto;
     color: #20212c;
 
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+
+    img {
+        height: 200px;
+    }
 }

@@ -1,5 +1,9 @@
 body {
-  background-color: beige;
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image: radial-gradient(circle at center center, #e5cc88, #e5e5f7), repeating-radial-gradient(circle at center center, #e5cc88, #e5cc88, 10px, transparent 20px, transparent 10px);
+  background-blend-mode: multiply;
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
