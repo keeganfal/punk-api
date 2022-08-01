@@ -13,7 +13,8 @@ function App() {
   const [beerName, setBeerName] = useState("");
   const [alcohol, setAlcohol] = useState("");
   const [classic, setClassic] = useState("");
-  
+  const [filterData, setFilterData] = useState();
+
   useEffect(() => {
     filterResults()
   }, [beerName, alcohol, classic])
@@ -34,13 +35,13 @@ function App() {
     console.log("filter starting");
     
     console.log(`https://api.punkapi.com/v2/beers?${beerName}${alcohol}${classic}`);
-    const res = await fetch(`https://api.punkapi.com/v2/beers?${beerName}${alcohol}${classic}`);
+    const res = await fetch(`https://api.punkapi.com/v2/beers?page=1&per_page=80&${beerName}${alcohol}${classic}`);
     const data = await res.json();
-    console.log(data);
     const cardListJSX = data.map((beer) => (
       <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline} firstBrewed={beer.first_brewed} beerAbv={beer.abv}/>
     ));
     setBeers(cardListJSX)
+    setFilterData(data)
   };
 
   const handleBeerName = (name) => {
@@ -71,10 +72,10 @@ function App() {
     }
   }
 
-  const handleHighAcidity = async () => {
-    const res = await fetch("https://api.punkapi.com/v2/beers?page=1&per_page=80");
-    const data = await res.json();
-
+  const handleHighAcidity = () => {
+    // const res = await fetch("https://api.punkapi.com/v2/beers?page=1&per_page=80");
+    // const data = await res.json();
+    const data = filterData;
     const newArr = data.filter((beer) => {
         if (beer.ph < 4 && beer.ph) {
           return(beer)
