@@ -26,7 +26,11 @@ function App() {
   const filterResults =  async (beerName) => {
     const res = await fetch("https://api.punkapi.com/v2/beers");
     const data = await res.json();
+    if (beerName === "") {
+      getBeers()
+    };
     const newArr = data.filter((beer) => {
+        
         if (beer.name === beerName) {
           return(setBeers(<CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerTag={beer.tagline}/>))
         };
@@ -62,10 +66,13 @@ function App() {
 
     const newArr = data.filter((beer) => {
         if (beer.ph > 4) {
-          return(setBeers(<CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerTag={beer.tagline}/>))
+          return(beer)
         };
         return(null)
-      })
+      }).map((beer) => (
+        <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerTag={beer.tagline} beerPh={beer.ph}/>
+      ));
+      setBeers(newArr)
   };
 
   return (
