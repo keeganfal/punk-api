@@ -3,11 +3,13 @@ import React from "react";
 
 const SearchBar = ({getBeers, filterResults}) => {
 
-  const [searchTerm, setSearchTerm] = React.useState("");
+  // const [searchTerm, setSearchTerm] = React.useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log(event.target[0].value)
+    // getBeers()
+    filterResults(event.target[0].value)
   }
 
   return (

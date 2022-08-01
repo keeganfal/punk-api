@@ -1,0 +1,23 @@
+
+.listItem {
+  border: 0.125em solid black;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  margin-top: 10px;
+
+  &--done{
+    border: 0.125em solid black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: line-through;
+
+    margin-top: 10px;
+    
+  }
+
+}
