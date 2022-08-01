@@ -89,7 +89,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="title">PUNK API BREWERY</div>
+      <div className="title">PUNK API</div>
 
       <nav className='nav'>
         <SearchBar getBeers={getBeers} handleBeerName={handleBeerName}></SearchBar>
