@@ -15,8 +15,9 @@
   align-items: center;
 }
 .search-bar #beer-name {
-  border-radius: 15px;
-  height: 20px;
+  border-radius: 8px;
+  height: 25px;
+  margin-right: 10px;
 }
 .search-bar #submit-btn {
   background-color: #fff;
