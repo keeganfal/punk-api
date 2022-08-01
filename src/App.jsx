@@ -24,7 +24,7 @@ function App() {
     const res = await fetch("https://api.punkapi.com/v2/beers");
     const data = await res.json();
     const cardListJSX = data.map((beer) => (
-      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline} firstBrewed={beer.first_brewed}/>
+      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline} firstBrewed={beer.first_brewed} beerAbv={beer.abv}/>
     ));
 
     setBeers(cardListJSX)
@@ -38,7 +38,7 @@ function App() {
     const data = await res.json();
     console.log(data);
     const cardListJSX = data.map((beer) => (
-      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline} firstBrewed={beer.first_brewed}/>
+      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline} firstBrewed={beer.first_brewed} beerAbv={beer.abv}/>
     ));
     setBeers(cardListJSX)
   };
@@ -63,8 +63,8 @@ function App() {
   }
 
   const handleClassicRange = () => {
-    if (classic !== "brewed_before=10"){
-      setClassic("brewed_before=10");
+    if (classic !== "brewed_before=01-2010"){
+      setClassic("brewed_before=01-2010");
     }
     else{
       setClassic("");
@@ -81,7 +81,7 @@ function App() {
         };
         return(null)
       }).map((beer) => (
-        <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline}/>
+        <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline} firstBrewed={beer.first_brewed} beerAbv={beer.abv}/>
       ));
       setBeers(newArr)
   };
