@@ -1,15 +1,13 @@
 import React from "react";
 import "./SearchBar.scss"
 
-const SearchBar = ({getBeers, filterResults}) => {
+const SearchBar = ({getBeers, handleBeerName}) => {
 
   // const [searchTerm, setSearchTerm] = React.useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(event.target[0].value)
-    // getBeers()
-    filterResults(event.target[0].value)
+    handleBeerName(event.target[0].value)
   }
 
   return (
