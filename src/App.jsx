@@ -9,15 +9,13 @@ import { useState } from 'react';
 function App() {
 
   const [beers, setBeers] = useState();
-
+  
   // getting the beers punk api
   const getBeers = async () => {
     const res = await fetch("https://api.punkapi.com/v2/beers");
     const data = await res.json();
-    console.log("getting beers");
-    console.log(data);
     const cardListJSX = data.map((beer) => (
-      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerTag={beer.tagline}/>
+      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline}/>
     ));
 
     setBeers(cardListJSX)
@@ -30,9 +28,8 @@ function App() {
       getBeers()
     };
     const newArr = data.filter((beer) => {
-        
         if (beer.name === beerName) {
-          return(setBeers(<CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerTag={beer.tagline}/>))
+          return(setBeers(<CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline}/>))
         };
         return(null)
       })
@@ -43,7 +40,7 @@ function App() {
     const data = await res.json();
 
     const cardListJSX = data.map((beer) => (
-      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerTag={beer.tagline}/>
+      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline}/>
     ));
 
     setBeers(cardListJSX)
@@ -54,23 +51,23 @@ function App() {
     const data = await res.json();
 
     const cardListJSX = data.map((beer) => (
-      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerTag={beer.tagline}/>
+      <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerPh={beer.ph} beerTag={beer.tagline}/>
     ));
 
     setBeers(cardListJSX)
   }
 
   const handleHighAcidity = async () => {
-    const res = await fetch("https://api.punkapi.com/v2/beers");
+    const res = await fetch("https://api.punkapi.com/v2/beers?page=1&per_page=80");
     const data = await res.json();
 
     const newArr = data.filter((beer) => {
-        if (beer.ph > 4) {
+        if (beer.ph < 4 && beer.ph) {
           return(beer)
         };
         return(null)
       }).map((beer) => (
-        <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerTag={beer.tagline} beerPh={beer.ph}/>
+        <CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url}  beerPh={beer.ph} beerTag={beer.tagline}/>
       ));
       setBeers(newArr)
   };
