@@ -14,7 +14,7 @@ const SearchBar = ({getBeers, filterResults}) => {
 
   return (
  
-    <nav className="nav">
+    <nav className="search-bar">
       <form onSubmit={handleSubmit}>
         <label htmlFor="beer-name">Beer name: </label>
         <input type="text" name="beer-name" id="beer-name"/>

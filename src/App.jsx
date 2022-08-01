@@ -26,7 +26,6 @@ function App() {
   const filterResults =  async (beerName) => {
     const res = await fetch("https://api.punkapi.com/v2/beers");
     const data = await res.json();
-    console.log(data);
     const newArr = data.filter((beer) => {
         if (beer.name === beerName) {
           return(setBeers(<CardList key={beer.id} beerName={beer.name} beerImg={beer.image_url} beerTag={beer.tagline}/>))

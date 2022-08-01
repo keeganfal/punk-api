@@ -3,7 +3,7 @@ import "./FiltersList.scss";
 const FiltersList = ({handleHighAlcohol, handleClassicRange, handleHighAcidity}) => {
 
   return (
-    <>
+    <div className="filters">
       <label htmlFor="">High Alcohol (ABV value greater than 6%)</label>
       <input type="checkbox" onClick={handleHighAlcohol} />
       <br />
@@ -12,8 +12,7 @@ const FiltersList = ({handleHighAlcohol, handleClassicRange, handleHighAcidity})
       <br />
       <label htmlFor="">High Acidity (pH lower than 4)</label>
       <input type="checkbox" onClick={handleHighAcidity} />
-    </>
-   
+    </div>   
   );
 };
 
